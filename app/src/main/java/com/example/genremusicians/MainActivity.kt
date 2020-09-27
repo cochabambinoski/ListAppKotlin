@@ -2,6 +2,8 @@ package com.example.genremusicians
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import com.example.genregenres.Models.DataManager
 import com.example.genremusicians.Models.GenreInfo
@@ -37,5 +39,42 @@ class MainActivity : AppCompatActivity() {
         editTextMusician.setText(musician.album)
         val genrePosition = DataManager.genres.values.indexOf(musician.genre)
         spinnerGenre.setSelection(genrePosition)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_settings ->true
+            R.id.action_next ->{
+                MoveNext()
+            }
+            else ->super.onOptionsItemSelected(item)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        if(musicianPosition >= DataManager.musicians.lastIndex){
+            var item = menu?.findItem(R.id.action_next)
+            if(item != null){
+                item.icon = getDrawable(R.drawable.ic_baseline_block_24)
+                item.isEnabled = false
+            }
+        }
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun invalidateOptionsMenu() {
+        super.invalidateOptionsMenu()
+    }
+
+    private fun MoveNext() {
+        musicianPosition++
+        displayMusician()
+        invalidateOptionsMenu()
     }
 }
