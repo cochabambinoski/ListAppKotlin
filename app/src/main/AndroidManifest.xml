@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ListMusiciansActivity"
-            android:label="@string/title_activity_list_musicians"
+            android:name=".ListGenreMusiciansActivity"
+            android:label="@string/title_activity_list_genre_musicians"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,8 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".ListMusiciansActivity"
+            android:label="@string/title_activity_list_musicians"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

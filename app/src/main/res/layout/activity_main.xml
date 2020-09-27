@@ -33,17 +33,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Genre Name"
+        android:hint="Musician Name"
         app:layout_constraintEnd_toEndOf="@+id/spinnerGenre"
         app:layout_constraintStart_toStartOf="@+id/spinnerGenre"
         app:layout_constraintTop_toBottomOf="@+id/spinnerGenre" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/editTextMusician"
+        android:id="@+id/editTextAlbum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:hint="Musician Name"
+        android:hint="Album Name"
         app:layout_constraintEnd_toEndOf="@+id/editTextName"
         app:layout_constraintStart_toStartOf="@+id/editTextName"
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />

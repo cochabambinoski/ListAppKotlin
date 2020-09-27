@@ -7,6 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.genregenres.Models.DataManager
+import com.example.genremusicians.Models.MusicianInfo
 import kotlinx.android.synthetic.main.content_list_musicians.*
 
 class ListMusiciansActivity : AppCompatActivity() {
@@ -27,8 +28,14 @@ class ListMusiciansActivity : AppCompatActivity() {
 
         listMusician.setOnItemClickListener{parent, view, position, id ->
             val activityIntent = Intent(this,MainActivity::class.java)
-            activityIntent.putExtra(EXTRA_ALBUM_POSITION,position)
+            activityIntent.putExtra(EXTRA_MUSICIAN_POSITION,position)
             startActivity(activityIntent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (listMusician.adapter as ArrayAdapter<MusicianInfo>).notifyDataSetChanged()
+        //      recyclerListAlbum.adapter?.notifyDataSetChanged()
     }
 }
