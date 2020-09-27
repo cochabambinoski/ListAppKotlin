@@ -3,7 +3,7 @@ package com.example.genregenres.Models
 import com.example.genremusicians.Models.GenreInfo
 import com.example.genremusicians.Models.MusicianInfo
 
-class DataManager {
+object DataManager {
     var genres = HashMap<String, GenreInfo>()
     var musicians = ArrayList<MusicianInfo>()
     init {
