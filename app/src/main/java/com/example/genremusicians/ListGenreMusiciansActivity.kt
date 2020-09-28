@@ -3,6 +3,8 @@ package com.example.genremusicians
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -16,9 +18,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.genregenres.Models.DataManager
-import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.activity_list_genre_musicians.*
+import kotlinx.android.synthetic.main.app_bar_list_musician.*
 
-class ListGenreMusiciansActivity : AppCompatActivity() {
+class ListGenreMusiciansActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -37,34 +40,38 @@ class ListGenreMusiciansActivity : AppCompatActivity() {
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-//        val navController = findNavController(R.id.nav_host_fragment)
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-//            ), drawerLayout
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
 
-        recyclerListMusicians.layoutManager = LinearLayoutManager(this)
-        recyclerListMusicians.adapter = MusicianRecyclerAdapter(this,DataManager.musicians)
+//        recyclerListMusicians.layoutManager = LinearLayoutManager(this)
+//        recyclerListMusicians.adapter = MusicianRecyclerAdapter(this,DataManager.musicians)
+
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onResume() {
         super.onResume()
-        recyclerListMusicians.adapter?.notifyDataSetChanged()
+//        recyclerListMusicians.adapter?.notifyDataSetChanged()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.list_genre_musicians, menu)
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.nav_musicians -> {
+
+            }
+            R.id.nav_genres -> {
+
+            }
+            R.id.nav_share ->{
+
+            }
+            R.id.nav_send ->{
+                
+            }
+        }
         return true
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

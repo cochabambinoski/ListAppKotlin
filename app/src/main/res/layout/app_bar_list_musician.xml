@@ -20,14 +20,9 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerListMusicians"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="8dp"
-        tools:listitem="@layout/item_musician_list" />
+<!--    <include layout="@layout/content_list_genre_musicians"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"></include>-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
