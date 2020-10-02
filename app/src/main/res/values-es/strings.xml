@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Generos y Musicos</string>
+    <string name="title_activity_list_musicians">Lista de Musicos</string>
+    <string name="first_fragment_label">Primer Fragmento</string>
+    <string name="second_fragment_label">Segundo Fragmento</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
+    <string name="hello_first_fragment">Hola primer fragmento</string>
+    <string name="hello_second_fragment">Hola segundo fragmento</string>
+    <string name="title_activity_list_genre_musicians">Lista de Genero y Musica</string>
+    <string name="navigation_drawer_open">Abrir el nav</string>
+    <string name="navigation_drawer_close">Cerrar el nav</string>
+    <string name="nav_header_title">Android</string>
+    <string name="nav_header_subtitle">Android</string>
+    <string name="nav_header_desc">Cabezera</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Galeria</string>
+    <string name="menu_slideshow">Diapositivas</string>
+    <string name="genre_title">Titulo del Genero</string>
+    <string name="GenreView">Vista del Genero</string>
+    <string name="genre_title2">Titulo del Genero</string>
+    <string name="musician_name2">Nombre del Musico</string>
+    <string name="genres_and_musicians3">Generos y Musicos</string>
+    <string name="genres_and_musicians2">Generos y Musicos</string>
+    <string name="musician_name3">Nombre del musico</string>
+    <string name="album_name2">Nombre del album</string>
+    <string name="genres_and_musicians">Generos y Musicos</string>
+    <string name="musician_name">Nombre del musico</string>
+    <string name="album_name">Nombre del album</string>
+    <string name="share">Compartir</string>
+    <string name="send">Enviar</string>
+    <string name="musicians">Musicos</string>
+    <string name="genres">Generos</string>
+    <string name="communicate">Comunicar</string>
+    <string name="amount_genre_musicians">Cantidad de Generos y Musicos</string>
+    <string name="how_many_genre_musician">Tienes %1$d musicos y %2$d generos</string>
+</resources>

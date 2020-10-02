@@ -7,22 +7,26 @@
         <item
             android:id="@+id/nav_musicians"
             android:icon="@drawable/ic_baseline_library_music_24"
-            android:title="Musicians" />
+            android:title="@string/musicians" />
         <item
             android:id="@+id/nav_genres"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Genres" />
+            android:title="@string/genres" />
     </group>
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@android:drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/send" />
+            <item
+                android:id="@+id/action_count_musician_genres"
+                android:icon="@android:drawable/btn_star_big_off"
+                android:title="@string/amount_genre_musicians" />
         </menu>
     </item>
 </menu>

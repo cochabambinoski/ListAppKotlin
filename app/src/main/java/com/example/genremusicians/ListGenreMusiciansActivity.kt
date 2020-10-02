@@ -38,7 +38,7 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
     }
 
     private val genreLayoutManager by lazy {
-        GridLayoutManager(this,2)
+        GridLayoutManager(this, resources.getInteger(R.integer.genre_grid_span))
     }
 
     private val genreRecyclerAdapter by lazy {
@@ -100,17 +100,21 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
                 displayGenre()
             }
             R.id.nav_share -> {
-                handSelection("Don't you think you've shared enought?")
+                handSelection(R.string.share)
             }
             R.id.nav_send -> {
-                handSelection("Send")
+                handSelection(R.string.share)
+            }
+            R.id.action_count_musician_genres -> {
+                var message = getString(R.string.how_many_genre_musician,DataManager.musicians.size,DataManager.genres.size)
+                Snackbar.make(recyclerListMusicians, message, Snackbar.LENGTH_LONG).show()
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    private fun handSelection(message: String) {
-        Snackbar.make(recyclerListMusicians, message, Snackbar.LENGTH_LONG).show()
+    private fun handSelection(stringId: Int) {
+        Snackbar.make(recyclerListMusicians, stringId, Snackbar.LENGTH_LONG).show()
     }
 }

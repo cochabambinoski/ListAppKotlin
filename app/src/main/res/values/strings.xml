@@ -20,4 +20,22 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="genre_title">Genre Title</string>
+    <string name="GenreView">Genre View</string>
+    <string name="genre_title2">Genre Title</string>
+    <string name="musician_name2">Musician Name</string>
+    <string name="genres_and_musicians3">Genres and Musicians</string>
+    <string name="genres_and_musicians2">Genres and Musicians</string>
+    <string name="musician_name3">Musician Name</string>
+    <string name="album_name2">Album Name</string>
+    <string name="genres_and_musicians">Genres and Musicians</string>
+    <string name="musician_name">Musician Name</string>
+    <string name="album_name">Album Name</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="musicians">Musicians</string>
+    <string name="genres">Genres</string>
+    <string name="communicate">Communicate</string>
+    <string name="amount_genre_musicians">Amount of genres musicians</string>
+    <string name="how_many_genre_musician">You have %1$d musicians and %2$d genres</string>
 </resources>

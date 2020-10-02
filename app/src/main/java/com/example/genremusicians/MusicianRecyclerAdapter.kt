@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.genremusicians.Models.MusicianInfo
+import kotlinx.android.synthetic.main.item_musician_list.view.*
 
-class MusicianRecyclerAdapter (private val context: Context, private val musicians:List<MusicianInfo>) : RecyclerView.Adapter<MusicianRecyclerAdapter.ViewHolder>() {
+class MusicianRecyclerAdapter (private val context: Context, private val musicians:MutableList<MusicianInfo>) : RecyclerView.Adapter<MusicianRecyclerAdapter.ViewHolder>() {
 
     private val  layoutInflater = LayoutInflater.from(context)
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -21,6 +22,10 @@ class MusicianRecyclerAdapter (private val context: Context, private val musicia
                 val intent = Intent(context,MainActivity::class.java)
                 intent.putExtra(EXTRA_MUSICIAN_POSITION,musicianPosition)
                 context.startActivity(intent)
+            }
+
+            itemView.deleteButton.setOnClickListener{
+                musicians.removeAt(musicianPosition)
             }
         }
     }
@@ -40,4 +45,5 @@ class MusicianRecyclerAdapter (private val context: Context, private val musicia
         holder.textMusician.text = musician.name
         holder.musicianPosition = position
     }
+
 }

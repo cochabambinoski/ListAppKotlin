@@ -26,7 +26,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textGenre"
-                app:srcCompat="@drawable/ic_menu_slideshow" />
+                app:srcCompat="@drawable/ic_menu_slideshow"
+                android:contentDescription="@string/GenreView" />
 
             <TextView
                 android:id="@+id/textGenre"
@@ -35,7 +36,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="TextView"
+                android:text="@string/genre_title"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Widget.EditText"
                 app:layout_constraintEnd_toEndOf="parent"
