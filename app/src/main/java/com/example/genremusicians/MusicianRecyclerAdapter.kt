@@ -26,6 +26,7 @@ class MusicianRecyclerAdapter (private val context: Context, private val musicia
 
             itemView.deleteButton.setOnClickListener{
                 musicians.removeAt(musicianPosition)
+                notifyDataSetChanged()
             }
         }
     }
