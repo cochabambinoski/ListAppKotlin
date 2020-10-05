@@ -7,26 +7,31 @@
         <item
             android:id="@+id/nav_musicians"
             android:icon="@drawable/ic_baseline_library_music_24"
-            android:title="@string/musicians" />
+            android:title="@string/musicians"
+            android:fontFamily="@font/sf_mono_bolt"/>
         <item
             android:id="@+id/nav_genres"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/genres" />
+            android:title="@string/genres"
+            android:fontFamily="@font/sf_mono_bolt"/>
     </group>
     <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@android:drawable/ic_menu_share"
-                android:title="@string/share" />
+                android:title="@string/share"
+                android:fontFamily="@font/sf_mono_bolt"/>
             <item
                 android:id="@+id/nav_send"
                 android:icon="@android:drawable/ic_menu_send"
-                android:title="@string/send" />
+                android:title="@string/send"
+                android:fontFamily="@font/sf_mono_bolt"/>
             <item
                 android:id="@+id/action_count_musician_genres"
                 android:icon="@android:drawable/btn_star_big_off"
-                android:title="@string/amount_genre_musicians" />
+                android:title="@string/amount_genre_musicians"
+                android:fontFamily="@font/sf_mono_bolt"/>
         </menu>
     </item>
 </menu>

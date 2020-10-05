@@ -20,9 +20,10 @@
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="61dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="16dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/sf_mono_bolt"
                 android:text="@string/genre_title"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +33,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/musician_name"
+                android:fontFamily="@font/sf_mono_bolt"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textViewTitle"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
@@ -40,29 +44,21 @@
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_album_24" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="20dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/orange_rectangle" />
+                app:srcCompat="@drawable/ic_baseline_library_music_24" />
 
             <ImageView
                 android:id="@+id/deleteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_delete" />
+                app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
