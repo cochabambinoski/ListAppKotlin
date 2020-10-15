@@ -16,6 +16,7 @@ class MusicianRecyclerAdapter (private val context: Context, private val musicia
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val textGenre = itemView.findViewById<TextView>(R.id.textViewTitle)
         val textMusician = itemView.findViewById<TextView>(R.id.textViewText)
+        val textAlbum = itemView.findViewById<TextView>(R.id.albumText)
         var musicianPosition = 0
         init {
             itemView.setOnClickListener{
@@ -44,6 +45,7 @@ class MusicianRecyclerAdapter (private val context: Context, private val musicia
         var musician = musicians[position]
         holder.textGenre.text = musician.genre?.title
         holder.textMusician.text = musician.name
+        holder.textAlbum.text = musician.album
         holder.musicianPosition = position
     }
 

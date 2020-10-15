@@ -30,7 +30,7 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private val musicianLayoutManager by lazy {
-        LinearLayoutManager(this)
+        GridLayoutManager(this, resources.getInteger(R.integer.genre_grid_span))
     }
 
     private val musicianRecyclerAdapter by lazy {
@@ -100,7 +100,8 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
                 displayGenre()
             }
             R.id.nav_share -> {
-                handSelection(R.string.share)
+                var intentMain = Intent(this, ListAlbumActivity::class.java)
+                startActivity(intentMain)
             }
             R.id.nav_send -> {
                 handSelection(R.string.share)

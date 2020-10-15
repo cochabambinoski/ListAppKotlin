@@ -32,7 +32,20 @@ object DataManager {
         musicians.add(musician)
     }
 
-    private fun initializeGenres() {
+    fun findMusician(genre: GenreInfo, musicianTitle: String, musicianText: String):MusicianInfo?{
+        for (musician in musicians)
+            if (genre == musician.genre && musicianTitle==musician.name && musicianText==musician.album)
+                return musician
+            return null
+    }
+
+    fun addMusician(genre: GenreInfo,musicianTitle:String,musicianText:String):Int{
+        val musician = MusicianInfo(genre,musicianTitle,musicianText)
+        musicians.add(musician)
+        return musicians.lastIndex
+    }
+
+    public fun initializeGenres() {
         var genre=GenreInfo("1","SoftJazzRock")
         genres.set(genre.idGenre,genre)
 
