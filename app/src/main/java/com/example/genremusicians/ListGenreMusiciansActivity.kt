@@ -17,12 +17,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders.of
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.genregenres.Models.DataManager
+import com.example.genremusicians.viewmodel.ListGenreMusiciansActivityViewModel
 import kotlinx.android.synthetic.main.activity_list_genre_musicians.*
 import kotlinx.android.synthetic.main.app_bar_list_musician.*
 import kotlinx.android.synthetic.main.content_list_genre_musicians.*
+import java.util.EnumSet.of
+import java.util.List.of
 
 class ListGenreMusiciansActivity : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +51,10 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
         GenreRecyclerAdapter(this,DataManager.genres.values.toList())
     }
 
+    private val viewModel by lazy {
+        ViewModelProvider(this)[ListGenreMusiciansActivityViewModel::class.java]
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_genre_musicians)
@@ -61,7 +71,7 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
-        displayMusicians()
+        handleDisplaySelection(viewModel.navDrawerDisplaySelection)
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -93,11 +103,10 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.nav_genres,
             R.id.nav_musicians -> {
-                displayMusicians()
-            }
-            R.id.nav_genres -> {
-                displayGenre()
+                handleDisplaySelection(item.itemId)
+                viewModel.navDrawerDisplaySelection=item.itemId
             }
             R.id.nav_share -> {
                 var intentMain = Intent(this, ListAlbumActivity::class.java)
@@ -113,6 +122,17 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun handleDisplaySelection(itemId: Int) {
+        when(itemId){
+            R.id.nav_musicians -> {
+                displayMusicians()
+            }
+            R.id.nav_genres -> {
+                displayGenre()
+            }
+        }
     }
 
     private fun handSelection(stringId: Int) {
