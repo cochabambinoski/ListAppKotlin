@@ -2,6 +2,7 @@ package com.example.genremusicians
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -68,6 +69,9 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
             var intentMain = Intent(this, MainActivity::class.java)
             startActivity(intentMain)
         }
+        if(viewModel.isNewlyCreated && savedInstanceState != null)
+            viewModel.restoreState(savedInstanceState)
+        viewModel.isNewlyCreated = false
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
@@ -84,6 +88,11 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        viewModel.saveState(outState)
     }
 
     private fun displayMusicians() {
