@@ -11,6 +11,9 @@ interface MusicApi {
     @GET("breeds/list/all")
     fun getAlbumList(): Call<String>
 
-    @GET("breed/{breed}/images/random")
-    fun getImageBreed(@Path("breed") breed:String):Call<ImageDogModel>
+    @GET("v1/json/1/all_sports.php")
+    fun getSportsList(): Call<String>
+
+    @GET("breeds/image/random")
+    fun getImageBreed():Call<ImageDogModel>
 }

@@ -20,7 +20,25 @@ object ServiceBuilder {
         return retrofit as Retrofit
     }
 
+    private fun getClientScalar2(baseUrl:String="https://www.thesportsdb.com/api/"):Retrofit{
+        retrofit = Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .client(okHttp)
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .build()
+        return retrofit as Retrofit
+    }
+
     private fun getClientGson(baseUrl:String="https://dog.ceo/api/"):Retrofit{
+        retrofit = Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .client(okHttp)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        return retrofit as Retrofit
+    }
+
+    private fun getClientGson2(baseUrl:String="https://dog.ceo/api/"):Retrofit{
         retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttp)
@@ -33,7 +51,15 @@ object ServiceBuilder {
         return getClientScalar().create(contract)
     }
 
+    fun <T> buildServiceScalar2(contract: Class<T>): T{
+        return getClientScalar2().create(contract)
+    }
+
     fun <T> buildService(contract: Class<T>): T{
+        return getClientGson().create(contract)
+    }
+
+    fun <T> buildService2(contract: Class<T>): T{
         return getClientGson().create(contract)
     }
 }

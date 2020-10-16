@@ -13,6 +13,9 @@ class AlbumModel(val nameAlbum:String = "None", val nameArtist:String="Artist", 
 data class ImageDogModel(
     val message:String,
     val status:String
-) {
+)
 
-}
+data class ImageSportModel(
+    val strSport:String,
+    val strSportThumb:String
+)

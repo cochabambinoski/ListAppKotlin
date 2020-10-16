@@ -45,7 +45,7 @@ class AlbumListAdapter (private val context: Context, private val albums: Mutabl
         init {
             btnGetImgAlbum?.setOnClickListener{
                 val service = ServiceBuilder.buildService(MusicApi::class.java)
-                var callImage = service.getImageBreed(albums[albumPosition].nameAlbum)
+                var callImage = service.getImageBreed()
                 callImage.enqueue(object : retrofit2.Callback<ImageDogModel> {
                     override fun onResponse(call: Call<ImageDogModel>, response: Response<ImageDogModel>){
                         var imageModel = response.body()
