@@ -121,6 +121,12 @@ class ListGenreMusiciansActivity : AppCompatActivity(),
                 var intentMain = Intent(this, ListAlbumActivity::class.java)
                 startActivity(intentMain)
             }
+
+            R.id.nav_services -> {
+                var intentMain = Intent(this, MyServicesActivity::class.java)
+                startActivity(intentMain)
+            }
+
             R.id.nav_send -> {
                 handSelection(R.string.share)
             }

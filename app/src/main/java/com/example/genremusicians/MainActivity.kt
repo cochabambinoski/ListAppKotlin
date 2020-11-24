@@ -1,20 +1,37 @@
 package com.example.genremusicians
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.genregenres.Models.DataManager
 import com.example.genremusicians.Models.GenreInfo
 import com.example.genremusicians.Models.MusicianInfo
+import com.example.genremusicians.databinding.ActivityMainBinding
+import com.example.genremusicians.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private val tag = this::class.simpleName
     private var musicianPosition = POSITION_NOT_SET
+    val helper = MusicianLocationHelper(this,lifecycle)
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProviders.of(this).get(MainViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding:ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        buttonSurvey.setOnClickListener {
+            startActivity(Intent(this, SurveyActivity::class.java))
+        }
 
         var adapterGenres = ArrayAdapter<GenreInfo>(
             this,
@@ -38,8 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createMusician() {
-        DataManager.musicians.add(MusicianInfo())
-        musicianPosition = DataManager.musicians.lastIndex
+        musicianPosition = viewModel.createMusician()
     }
 
     override fun onRestart() {
@@ -52,10 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun saveMusician() {
-        val musician = DataManager.musicians[musicianPosition]
-        musician.name = editTextName.text.toString()
-        musician.album = editTextAlbum.text.toString()
-        musician.genre = spinnerGenre.selectedItem as GenreInfo
+        viewModel.updateMusician(musicianPosition, spinnerGenre.selectedItem as GenreInfo)
     }
 
     override fun onStop() {
@@ -69,8 +82,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayMusician() {
         val musician = DataManager.musicians[musicianPosition]
-        editTextName.setText(musician.name)
-        editTextAlbum.setText(musician.album)
+        viewModel.displayMusician(musicianPosition)
         val genrePosition = DataManager.genres.values.indexOf(musician.genre)
         spinnerGenre.setSelection(genrePosition)
     }
@@ -85,6 +97,9 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             R.id.action_next -> {
                 MoveNext()
+            }
+            R.id.action_location -> {
+                helper.sendMessage(DataManager.musicians[musicianPosition])
             }
             else -> super.onOptionsItemSelected(item)
         }

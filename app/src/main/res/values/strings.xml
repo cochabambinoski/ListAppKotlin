@@ -38,4 +38,28 @@
     <string name="communicate">Communicate</string>
     <string name="amount_genre_musicians">Amount of genres musicians</string>
     <string name="how_many_genre_musician">You have %1$d musicians and %2$d genres</string>
+    <string name="likes">Likes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="taking_survey">Taking Survey</string>
+    <string name="submit">Submit</string>
+    <string name="try_again">Try Again</string>
+    <string name="about_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+
+    </string>
+    <string name="rules_text">
+        "Material is the metaphor.\n\n"
+
+        "The only rule is to answer right hehe"
+
+    </string>
+    <string name="about">About</string>
+    <string name="rules">Rules</string>
+    <string name="stop_service">Stop Service</string>
+    <string name="start_service">Start Service</string>
 </resources>

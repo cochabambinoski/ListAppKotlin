@@ -7,4 +7,6 @@
     <color name="finalApiColor">#90F2FF</color>
     <color name="finalApiColor2">#C5F5FC</color>
     <color name="test2">#E9FCFF</color>
+    <color name="popular">#ff76a5</color>
+    <color name="start">#ff0057</color>
 </resources>
